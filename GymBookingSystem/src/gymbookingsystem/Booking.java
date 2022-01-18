@@ -15,6 +15,7 @@ public class Booking {
     private int bookingTime;
     private String bookingStatus;
     private Payment payment;
+    private String testMerge;
 
     public Booking() {
     }
