@@ -11,6 +11,7 @@ package gymbookingsystem;
 public class Admin {
     private Announcement announcement;
     private Coach coach;
+    private string dumbell;
 
     public Admin(Announcement announcement, Coach coach) {
         this.announcement = announcement;
