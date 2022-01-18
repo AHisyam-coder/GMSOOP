@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package gymbookingsystem;
+package modelclass;
 
 /**
  *
@@ -11,6 +11,7 @@ package gymbookingsystem;
 public class Admin {
     private Announcement announcement;
     private Coach coach;
+    private String testtest;
 
     public Admin(Announcement announcement, Coach coach) {
         this.announcement = announcement;
