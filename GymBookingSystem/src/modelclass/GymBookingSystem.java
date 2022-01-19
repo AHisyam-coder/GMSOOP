@@ -20,7 +20,7 @@ public class GymBookingSystem {
      * Aggregation in admin, booking, coach, customer class
      */
     public static void main(String[] args) {
-        int min = 1, max = 1000, random_id;
+        /*int min = 1, max = 1000, random_id;
         ArrayList<Coach> arrayCoach = new ArrayList<>(); // Array 
         ArrayList<Booking> arrayBooking = new ArrayList<>(); // Array
         GymSession gymSession = new GymSession();
@@ -313,6 +313,6 @@ public class GymBookingSystem {
             default:
                 System.out.println("Please choose VIP or normal customer only!");
                 break;
-        }
+        }*/
     }
 }
