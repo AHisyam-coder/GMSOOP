@@ -50,16 +50,20 @@ public class Member extends javax.swing.JFrame {
             DefaultTableModel df = (DefaultTableModel) tableMember.getModel();
             df.setRowCount(0);
 
+            int no = 0;
+
             while (rs.next()) {
                 Vector v = new Vector();
+                no++;
 
                 for (int x = 1; x <= i; x++) {
-                    v.add(rs.getString(x));
+                    v.add(no);
                     v.add(rs.getString("name"));
                     v.add(rs.getString("phoneNo"));
                     v.add(rs.getString("icNo"));
                     v.add(rs.getString("age"));
                     v.add(rs.getString("type"));
+                    v.add(rs.getString("gender"));
                 }
 
                 df.addRow(v);
@@ -67,6 +71,17 @@ public class Member extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+
+    public void clearData() {
+        etName.setText(null);
+        etPhoneNo.setText(null);
+        etIcNo.setText(null);
+        etAge.setText(null);
+        rbMale.setSelected(false);
+        rbFemale.setSelected(false);
+        rbVIP.setSelected(false);
+        rbNormal.setSelected(false);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -93,24 +108,25 @@ public class Member extends javax.swing.JFrame {
         rbNormal = new javax.swing.JRadioButton();
         btnEditMember = new javax.swing.JButton();
         btnDeleteMember = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tableMember.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tableMember.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "No", "Name", "Phone No", "Identity Card No", "Age", "Type"
+                "No", "Name", "Phone No", "Identity Card No", "Age", "Type", "Gender"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -123,6 +139,9 @@ public class Member extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tableMember);
+        if (tableMember.getColumnModel().getColumnCount() > 0) {
+            tableMember.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -188,7 +207,7 @@ public class Member extends javax.swing.JFrame {
         });
 
         btnAddMember.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnAddMember.setText("Add");
+        btnAddMember.setText("Add Member");
         btnAddMember.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddMemberActionPerformed(evt);
@@ -217,7 +236,7 @@ public class Member extends javax.swing.JFrame {
         });
 
         btnEditMember.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnEditMember.setText("Edit");
+        btnEditMember.setText("Update Member");
         btnEditMember.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditMemberActionPerformed(evt);
@@ -225,7 +244,7 @@ public class Member extends javax.swing.JFrame {
         });
 
         btnDeleteMember.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnDeleteMember.setText("Delete");
+        btnDeleteMember.setText("Delete Member");
         btnDeleteMember.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteMemberActionPerformed(evt);
@@ -236,107 +255,120 @@ public class Member extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(etPhoneNo))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(49, 49, 49)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(etName)
-                            .addComponent(etIcNo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4))
-                        .addGap(16, 16, 16)
+                        .addGap(121, 121, 121)
+                        .addComponent(rbVIP)
+                        .addGap(27, 27, 27)
+                        .addComponent(rbNormal))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rbMale)
+                                .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(rbFemale))
-                            .addComponent(etAge)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(rbVIP)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rbNormal)))))
-                .addGap(30, 30, 30))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addComponent(btnAddMember)
-                .addGap(18, 18, 18)
-                .addComponent(btnEditMember)
-                .addGap(18, 18, 18)
-                .addComponent(btnDeleteMember)
+                                .addComponent(etPhoneNo))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel4))
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(rbMale)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbFemale)
+                                        .addGap(0, 106, Short.MAX_VALUE))
+                                    .addComponent(etName)
+                                    .addComponent(etAge)
+                                    .addComponent(etIcNo)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDeleteMember)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnAddMember, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(btnEditMember)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(etPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etIcNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel2)
                     .addComponent(rbMale)
                     .addComponent(rbFemale))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(etPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(etAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(rbVIP)
-                        .addComponent(rbNormal))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(etIcNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditMember)
-                    .addComponent(btnAddMember)
-                    .addComponent(btnDeleteMember))
-                .addContainerGap(33, Short.MAX_VALUE))
+                    .addComponent(jLabel6)
+                    .addComponent(rbVIP)
+                    .addComponent(rbNormal))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEditMember, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAddMember, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDeleteMember)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        btnBack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap(162, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(btnBack)
+                .addGap(25, 25, 25))
         );
 
-        setSize(new java.awt.Dimension(783, 632));
+        setSize(new java.awt.Dimension(1101, 719));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -388,9 +420,21 @@ public class Member extends javax.swing.JFrame {
                 pst.setString(1, etName.getText());
                 pst.setString(2, etPhoneNo.getText());
                 pst.setString(3, etIcNo.getText());
-                pst.setString(4, "female");
+
+                if (rbMale.isSelected()) {
+                    pst.setString(4, rbMale.getText());
+                } else if (rbFemale.isSelected()) {
+                    pst.setString(4, rbFemale.getText());
+                }
+
                 pst.setString(5, etAge.getText());
-                pst.setString(6, "VIP");
+
+                if (rbVIP.isSelected()) {
+                    pst.setString(6, rbVIP.getText());
+                } else if (rbNormal.isSelected()) {
+                    pst.setString(6, rbNormal.getText());
+                }
+
                 pst.setInt(7, id);
 
                 pst.executeUpdate();
@@ -402,10 +446,7 @@ public class Member extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
-        etName.setText(null);
-        etPhoneNo.setText(null);
-        etIcNo.setText(null);
-        etAge.setText(null);
+        clearData();
     }//GEN-LAST:event_btnEditMemberActionPerformed
 
     private void btnDeleteMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteMemberActionPerformed
@@ -434,10 +475,7 @@ public class Member extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
-        etName.setText(null);
-        etPhoneNo.setText(null);
-        etIcNo.setText(null);
-        etAge.setText(null);
+        clearData();
     }//GEN-LAST:event_btnDeleteMemberActionPerformed
 
     private void btnAddMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMemberActionPerformed
@@ -452,18 +490,27 @@ public class Member extends javax.swing.JFrame {
                 pst.setString(1, etName.getText());
                 pst.setString(2, etPhoneNo.getText());
                 pst.setString(3, etIcNo.getText());
-                pst.setString(4, "male");
+
+                if (rbMale.isSelected()) {
+                    pst.setString(4, rbMale.getText());
+                } else if (rbFemale.isSelected()) {
+                    pst.setString(4, rbFemale.getText());
+                }
+
                 pst.setString(5, etAge.getText());
-                pst.setString(6, "VIP");
+
+                if (rbVIP.isSelected()) {
+                    pst.setString(6, rbVIP.getText());
+                } else if (rbNormal.isSelected()) {
+                    pst.setString(6, rbNormal.getText());
+                }
 
                 pst.executeUpdate();
 
                 JOptionPane.showMessageDialog(this, "Successfully add a member!");
+                tableUpdate();
 
-                etName.setText(null);
-                etPhoneNo.setText(null);
-                etIcNo.setText(null);
-                etAge.setText(null);
+                clearData();
 
                 etName.requestFocus();
             }
@@ -480,7 +527,25 @@ public class Member extends javax.swing.JFrame {
         etPhoneNo.setText(df.getValueAt(selectedIndex, 2).toString());
         etIcNo.setText(df.getValueAt(selectedIndex, 3).toString());
         etAge.setText(df.getValueAt(selectedIndex, 4).toString());
+                
+        if (df.getValueAt(selectedIndex, 5).toString().equals(rbVIP.getText())) {
+            rbVIP.setSelected(true);
+        } else if (df.getValueAt(selectedIndex, 5).toString().equals(rbNormal.getText())) {
+            rbNormal.setSelected(true);
+        }
+
+        if (df.getValueAt(selectedIndex, 6).toString().equals(rbMale.getText())) {
+            rbMale.setSelected(true);
+        } else if (df.getValueAt(selectedIndex, 6).toString().equals(rbFemale.getText())) {
+            rbFemale.setSelected(true);
+        }
     }//GEN-LAST:event_tableMemberMouseClicked
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        Home home = new Home();
+        this.dispose();
+        home.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -519,6 +584,7 @@ public class Member extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddMember;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDeleteMember;
     private javax.swing.JButton btnEditMember;
     private javax.swing.ButtonGroup btnGrpGender;
