@@ -137,10 +137,10 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1085, 680));
+        setSize(new java.awt.Dimension(1085, 681));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

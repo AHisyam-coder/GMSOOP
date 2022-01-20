@@ -4,6 +4,8 @@
  */
 package gymbookingsystem;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Hisyam
@@ -26,22 +28,447 @@ public class Coach extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        BtnBack = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        NameTextField = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        EmailTextField = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        PhoneNumTextField = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        AvailabilityNoRadBtn = new javax.swing.JRadioButton();
+        AvailabilityYesRadBtn = new javax.swing.JRadioButton();
+        jLabel12 = new javax.swing.JLabel();
+        VerifiedYesRadBtn = new javax.swing.JRadioButton();
+        VerifiedNoRadBtn = new javax.swing.JRadioButton();
+        BtnAdd = new javax.swing.JButton();
+        BtnUpdate = new javax.swing.JButton();
+        BtnDelete = new javax.swing.JButton();
+        BtnBookCoach = new javax.swing.JButton();
+        IdTextField = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        BtnClear = new javax.swing.JButton();
+        BookDateTextField = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        BookTimeTextField = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel15 = new javax.swing.JLabel();
+        IdTextField1 = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setText("Coach");
+
+        BtnBack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnBack.setText("Back");
+        BtnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBackActionPerformed(evt);
+            }
+        });
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.setLayout(null);
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(10, 10, 0, 150);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("Email");
+
+        NameTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        NameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NameTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("Name");
+
+        EmailTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        EmailTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmailTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("Phone No");
+
+        PhoneNumTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        PhoneNumTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PhoneNumTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setText("Availability");
+
+        AvailabilityNoRadBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        AvailabilityNoRadBtn.setText("No");
+        AvailabilityNoRadBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AvailabilityNoRadBtnActionPerformed(evt);
+            }
+        });
+
+        AvailabilityYesRadBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        AvailabilityYesRadBtn.setText("Yes");
+        AvailabilityYesRadBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AvailabilityYesRadBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Verified");
+
+        VerifiedYesRadBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        VerifiedYesRadBtn.setText("Yes");
+        VerifiedYesRadBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerifiedYesRadBtnActionPerformed(evt);
+            }
+        });
+
+        VerifiedNoRadBtn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        VerifiedNoRadBtn.setText("No");
+        VerifiedNoRadBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerifiedNoRadBtnActionPerformed(evt);
+            }
+        });
+
+        BtnAdd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnAdd.setText("Add Coach");
+        BtnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddActionPerformed(evt);
+            }
+        });
+
+        BtnUpdate.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnUpdate.setLabel("Update Coach");
+        BtnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdateActionPerformed(evt);
+            }
+        });
+
+        BtnDelete.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnDelete.setLabel("Delete Coach");
+
+        BtnBookCoach.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnBookCoach.setText("Book Coach");
+
+        IdTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        IdTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IdTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("ID");
+
+        BtnClear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BtnClear.setText("Clear");
+
+        BookDateTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BookDateTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BookDateTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setText("Book Date");
+
+        BookTimeTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        BookTimeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BookTimeTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setText("Book Time");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BtnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(PhoneNumTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel11))
+                                    .addGap(49, 49, 49)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(IdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                        .addComponent(NameTextField)
+                                        .addComponent(EmailTextField))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(AvailabilityYesRadBtn)
+                                    .addGap(58, 58, 58)
+                                    .addComponent(AvailabilityNoRadBtn))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addGap(42, 42, 42)
+                                    .addComponent(VerifiedYesRadBtn)
+                                    .addGap(58, 58, 58)
+                                    .addComponent(VerifiedNoRadBtn)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14))
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtnBookCoach, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(BookTimeTextField)
+                                .addComponent(BookDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BtnUpdate)))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(IdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(PhoneNumTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(AvailabilityYesRadBtn)
+                    .addComponent(AvailabilityNoRadBtn))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(VerifiedYesRadBtn)
+                    .addComponent(VerifiedNoRadBtn))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnClear)
+                    .addComponent(BtnAdd))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnUpdate)
+                    .addComponent(BtnDelete))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BookTimeTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(BookDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(BtnBookCoach)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTable1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "                 ID", "              Name", "       Phone Number", "              Email", "           Availability", "            Verified"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setText("Search");
+
+        IdTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        IdTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IdTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1085, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BtnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(IdTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(IdTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1101, 719));
+        setSize(new java.awt.Dimension(1182, 711));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void EmailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmailTextFieldActionPerformed
+
+    private void PhoneNumTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneNumTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PhoneNumTextFieldActionPerformed
+
+    private void AvailabilityNoRadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvailabilityNoRadBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AvailabilityNoRadBtnActionPerformed
+
+    private void AvailabilityYesRadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvailabilityYesRadBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AvailabilityYesRadBtnActionPerformed
+
+    private void VerifiedYesRadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerifiedYesRadBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VerifiedYesRadBtnActionPerformed
+
+    private void VerifiedNoRadBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerifiedNoRadBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VerifiedNoRadBtnActionPerformed
+
+    private void BtnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnUpdateActionPerformed
+
+    private void BtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddActionPerformed
+        // TODO add your handling code here:
+         String coachId = IdTextField.getText();
+         
+         if(IdTextField.getText().equals(""))
+         {
+            JOptionPane.showMessageDialog(null,"Please Fill Complete Information","Error",JOptionPane.ERROR_MESSAGE);
+            IdTextField.setText(null); 
+         }
+         else
+         {
+            IdTextField.setText("");
+         }     
+    }//GEN-LAST:event_BtnAddActionPerformed
+
+    private void IdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IdTextFieldActionPerformed
+
+    private void NameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameTextFieldActionPerformed
+
+    private void BtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnBackActionPerformed
+
+    private void BookDateTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookDateTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BookDateTextFieldActionPerformed
+
+    private void BookTimeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookTimeTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BookTimeTextFieldActionPerformed
+
+    private void IdTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IdTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +506,37 @@ public class Coach extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton AvailabilityNoRadBtn;
+    private javax.swing.JRadioButton AvailabilityYesRadBtn;
+    private javax.swing.JTextField BookDateTextField;
+    private javax.swing.JTextField BookTimeTextField;
+    private javax.swing.JButton BtnAdd;
+    private javax.swing.JButton BtnBack;
+    private javax.swing.JButton BtnBookCoach;
+    private javax.swing.JButton BtnClear;
+    private javax.swing.JButton BtnDelete;
+    private javax.swing.JButton BtnUpdate;
+    private javax.swing.JTextField EmailTextField;
+    private javax.swing.JTextField IdTextField;
+    private javax.swing.JTextField IdTextField1;
+    private javax.swing.JTextField NameTextField;
+    private javax.swing.JTextField PhoneNumTextField;
+    private javax.swing.JRadioButton VerifiedNoRadBtn;
+    private javax.swing.JRadioButton VerifiedYesRadBtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
