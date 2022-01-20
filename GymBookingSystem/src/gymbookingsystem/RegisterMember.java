@@ -8,12 +8,12 @@ package gymbookingsystem;
  *
  * @author Hisyam
  */
-public class GymSession extends javax.swing.JFrame {
+public class RegisterMember extends javax.swing.JFrame {
 
     /**
-     * Creates new form GymSession
+     * Creates new form RegisterMember
      */
-    public GymSession() {
+    public RegisterMember() {
         initComponents();
     }
 
@@ -39,8 +39,7 @@ public class GymSession extends javax.swing.JFrame {
             .addGap(0, 680, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(1101, 719));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -60,20 +59,20 @@ public class GymSession extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GymSession.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GymSession.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GymSession.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GymSession.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RegisterMember.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GymSession().setVisible(true);
+                new RegisterMember().setVisible(true);
             }
         });
     }
