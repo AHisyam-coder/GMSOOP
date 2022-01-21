@@ -20,8 +20,8 @@ public class VIPCustomer extends Customer {
     
     //POLYMORPHISM
     @Override
-    public void customerType(){
-        System.out.println("VIP Customer"); 
+    public String customerType(){
+        return "VIP";
     }
     
     @Override

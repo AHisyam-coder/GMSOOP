@@ -11,7 +11,6 @@ package modelclass;
 public class Admin {
     private Announcement announcement;
     private Coach coach;
-    private String testtest;
 
     public Admin(Announcement announcement, Coach coach) {
         this.announcement = announcement;

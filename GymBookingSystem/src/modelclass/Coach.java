@@ -13,17 +13,15 @@ public class Coach {
     private String coachName;
     private String coachPhoneNum;
     private String coachEmail;
-    private boolean isVerified;
     private boolean isAvailable;
     private GymSession gymSession;
     
 
-    public Coach(int coachId, String coachName, String coachPhoneNum, String coachEmail, boolean isVerified, boolean isAvailable, GymSession gymSession) {
+    public Coach(int coachId, String coachName, String coachPhoneNum, String coachEmail, boolean isAvailable, GymSession gymSession) {
         this.coachId = coachId;
         this.coachName = coachName;
         this.coachPhoneNum = coachPhoneNum;
         this.coachEmail = coachEmail;
-        this.isVerified = isVerified;
         this.isAvailable = isAvailable;
         this.gymSession = gymSession;
     }
@@ -65,14 +63,6 @@ public class Coach {
 
     public void setCoachEmail(String coachEmail) {
         this.coachEmail = coachEmail;
-    }
-
-    public boolean isIsVerified() {
-        return isVerified;
-    }
-
-    public void setIsVerified(boolean isVerified) {
-        this.isVerified = isVerified;
     }
 
     public boolean isIsAvailable() {
