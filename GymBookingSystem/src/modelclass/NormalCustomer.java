@@ -17,8 +17,8 @@ public class NormalCustomer extends Customer{
     
     //POLYMORPHISM
     @Override
-    public void customerType(){
-        System.out.println("Normal Customer"); 
+    public String customerType(){
+        return "Normal";
     }
     
     @Override

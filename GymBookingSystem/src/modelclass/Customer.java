@@ -86,6 +86,7 @@ abstract public class Customer {
     }
     
     //POLYMORPHISM
-    public void customerType(){
+    public String customerType(){
+        return null;
     }
 }

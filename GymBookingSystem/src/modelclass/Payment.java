@@ -11,6 +11,8 @@ import java.util.Date;
  * @author Hisyam
  */
 public class Payment {
+    private final double PAYMENT_BOOK_COACH_PER_HOUR = 12;
+    
     private int PaymentId;
     private int customerId;
     private int coachId;
@@ -79,5 +81,11 @@ public class Payment {
         this.paymentStatus = paymentStatus;
     }
     
-    
+    public float calcBookCoach(int timeFrom, int timeTo){
+        float feeBookCoach;
+        
+        feeBookCoach = (float) (((timeTo - timeFrom)/60) * PAYMENT_BOOK_COACH_PER_HOUR);
+        
+        return feeBookCoach;
+    }
 }

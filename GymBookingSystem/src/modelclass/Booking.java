@@ -12,19 +12,20 @@ public class Booking {
     private String bookingId;
     private String bookingDate;
     private double bookingPrice;
-    private int bookingTime;
+    private String bookingTimeFrom;
+    private String bookingTimeTo;
     private String bookingStatus;
     private Payment payment;
-    private String testMerge;
 
     public Booking() {
     }
-    
-    public Booking(String bookingId, String bookingDate, double bookingPrice, int bookingTime, String bookingStatus, Payment payment) {
+
+    public Booking(String bookingId, String bookingDate, double bookingPrice, String bookingTimeFrom, String bookingTimeTo, String bookingStatus, Payment payment) {
         this.bookingId = bookingId;
         this.bookingDate = bookingDate;
         this.bookingPrice = bookingPrice;
-        this.bookingTime = bookingTime;
+        this.bookingTimeFrom = bookingTimeFrom;
+        this.bookingTimeTo = bookingTimeTo;
         this.bookingStatus = bookingStatus;
         this.payment = payment;
     }
@@ -53,12 +54,20 @@ public class Booking {
         this.bookingPrice = bookingPrice;
     }
 
-    public int getBookingTime() {
-        return bookingTime;
+    public String getBookingTimeFrom() {
+        return bookingTimeFrom;
     }
 
-    public void setBookingTime(int bookingTime) {
-        this.bookingTime = bookingTime;
+    public void setBookingTimeFrom(String bookingTimeFrom) {
+        this.bookingTimeFrom = bookingTimeFrom;
+    }
+
+    public String getBookingTimeTo() {
+        return bookingTimeTo;
+    }
+
+    public void setBookingTimeTo(String bookingTimeTo) {
+        this.bookingTimeTo = bookingTimeTo;
     }
 
     public String getBookingStatus() {
@@ -76,6 +85,6 @@ public class Booking {
     public void setPayment(Payment payment) {
         this.payment = payment;
     }
-    
+
     
 }

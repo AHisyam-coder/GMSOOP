@@ -199,7 +199,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCoachActionPerformed
 
     private void btnGymSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGymSessionActionPerformed
-        GymSession gymSession = new GymSession();
+        GymSessionUI gymSession = new GymSessionUI();
         this.dispose();
         gymSession.setVisible(true);
     }//GEN-LAST:event_btnGymSessionActionPerformed
