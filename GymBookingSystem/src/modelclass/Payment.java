@@ -16,15 +16,15 @@ public class Payment {
     private int PaymentId;
     private int customerId;
     private int coachId;
-    private Date paymentDate;
+    private String paymentDate;
     private double paymentTotal;
-    private String paymentStatus;
+    private Boolean paymentStatus;
     
     public Payment() {
         
     }
 
-    public Payment(int PaymentId, int customerId, int coachId, Date paymentDate, double paymentTotal, String paymentStatus) {
+    public Payment(int PaymentId, int customerId, int coachId, String paymentDate, double paymentTotal, Boolean paymentStatus) {
         this.PaymentId = PaymentId;
         this.customerId = customerId;
         this.coachId = coachId;
@@ -57,11 +57,11 @@ public class Payment {
         this.coachId = coachId;
     }
 
-    public Date getPaymentDate() {
+    public String getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(Date paymentDate) {
+    public void setPaymentDate(String paymentDate) {
         this.paymentDate = paymentDate;
     }
 
@@ -73,11 +73,11 @@ public class Payment {
         this.paymentTotal = paymentTotal;
     }
 
-    public String getPaymentStatus() {
+    public Boolean getPaymentStatus() {
         return paymentStatus;
     }
 
-    public void setPaymentStatus(String paymentStatus) {
+    public void setPaymentStatus(Boolean paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
     

@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -26,8 +27,9 @@ public class BookCoach extends javax.swing.JFrame {
     /**
      * Creates new form BookCoach
      */
-    private int coachId, memberId;
+    private int coachId, memberId, paymentId;
     private float bookPrice;
+    private Boolean coachAvailability;
     private Booking book;
 
     public BookCoach() {
@@ -134,8 +136,42 @@ public class BookCoach extends javax.swing.JFrame {
         etTimeTo.setText(null);
         memberId = 0;
         coachId = 0;
+        paymentId = 0;
         bookPrice = 0;
         lblPrice.setText(null);
+        coachAvailability = false;
+    }
+
+    public void payment() {
+        try {
+            String sql = "INSERT INTO `payments` (`memberId`, `coachId`, `date`, `fee`, `isPaid`) VALUES (?, ?, ?, ?, ?)";
+
+            PreparedStatement pst = new ConnectionDB(sql).tryConn(Statement.RETURN_GENERATED_KEYS);
+
+            if (etDate.getText().isEmpty() || etTimeFrom.getText().isEmpty() || etTimeTo.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please fill in all the details!", "Validation", JOptionPane.OK_OPTION);
+            } else if (memberId == 0 || coachId == 0) {
+                JOptionPane.showMessageDialog(null, "Please choose a pair of coach and member!", "Validation", JOptionPane.OK_OPTION);
+            } else {
+                pst.setInt(1, memberId);
+                pst.setInt(2, coachId);
+                pst.setString(3, book.getPayment().getPaymentDate());
+                pst.setFloat(4, (float) book.getPayment().getPaymentTotal());
+                pst.setBoolean(5, book.getPayment().getPaymentStatus());
+
+                pst.executeUpdate();
+
+                try (ResultSet generatedKeys = pst.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        paymentId = (int) generatedKeys.getLong(1);
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -164,6 +200,9 @@ public class BookCoach extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
         btnBookCoach = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        cmbPay = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
 
@@ -349,13 +388,13 @@ public class BookCoach extends javax.swing.JFrame {
                     .addComponent(etTimeTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(btnCalcPrice)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setText("Total price: RM");
+        jLabel9.setText("Total price:  RM");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
         jLabel10.setText("1 hour = RM12");
@@ -371,32 +410,62 @@ public class BookCoach extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel11.setText("Note: We only accepts cash, no refund for cancellation or any changes");
+
+        cmbPay.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cmbPay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pay Now", "Pay Later" }));
+        cmbPay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbPayActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Paid status");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPrice)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPrice))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbPay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBookCoach))
-                .addGap(157, 157, 157))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnBookCoach)
+                        .addGap(166, 166, 166))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel10)
-                .addGap(28, 28, 28)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(lblPrice))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(cmbPay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBookCoach)
                 .addContainerGap())
@@ -482,7 +551,7 @@ public class BookCoach extends javax.swing.JFrame {
                 .addGap(205, 205, 205))
         );
 
-        setSize(new java.awt.Dimension(1101, 625));
+        setSize(new java.awt.Dimension(1101, 665));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -494,6 +563,12 @@ public class BookCoach extends javax.swing.JFrame {
         DefaultTableModel df = (DefaultTableModel) tableCoach.getModel();
         int selectedIndex = tableCoach.getSelectedRow();
         coachId = Integer.parseInt(df.getValueAt(selectedIndex, 0).toString());
+
+        if (df.getValueAt(selectedIndex, 3).toString().equals("Available")) {
+            coachAvailability = true;
+        } else {
+            coachAvailability = false;
+        }
     }//GEN-LAST:event_tableCoachMouseClicked
 
     private void tableMemberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMemberMouseClicked
@@ -549,14 +624,32 @@ public class BookCoach extends javax.swing.JFrame {
     private void btnBookCoachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookCoachActionPerformed
         if (bookPrice == 0) {
             JOptionPane.showMessageDialog(null, "Please fill in all the details!", "Validation", JOptionPane.OK_OPTION);
+        } else if (coachAvailability != true) {
+            JOptionPane.showMessageDialog(null, "The chosen coach is not available, please choose the other coach!", "Validation", JOptionPane.OK_OPTION);
         } else {
-            book.setBookingDate(etDate.getText());
-            book.setBookingTimeFrom(etTimeFrom.getText());
-            book.setBookingTimeTo(etTimeTo.getText());
-            book.setBookingStatus("Success");
+            Payment pay = new Payment();
+
+            String payStatus = String.valueOf(cmbPay.getSelectedItem());
+
+            pay.setCoachId(coachId);
+            pay.setCustomerId(memberId);
+            pay.setPaymentTotal(bookPrice);
+
+            if (payStatus.equals("Pay Now")) {
+                pay.setPaymentDate(etDate.getText());
+                pay.setPaymentStatus(true);
+            } else {
+                pay.setPaymentDate(null);
+                pay.setPaymentStatus(false);
+            }
+
+            book = new Booking(null, etDate.getText(), bookPrice, etTimeFrom.getText(), etTimeTo.getText(), "Success", pay);
+
+            //insert into payment table
+            payment();
 
             try {
-                String sql = "INSERT INTO `coachbookings` (`memberId`, `coachId`, `date`, `price`, `timeFrom`, `timeTo`, `status`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO `coachbookings` (`memberId`, `coachId`, `paymentId`, `date`, `timeFrom`, `timeTo`, `status`) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
                 PreparedStatement pst = new ConnectionDB(sql).tryConn();
 
@@ -567,8 +660,8 @@ public class BookCoach extends javax.swing.JFrame {
                 } else {
                     pst.setInt(1, memberId);
                     pst.setInt(2, coachId);
-                    pst.setString(3, book.getBookingDate());
-                    pst.setFloat(4, bookPrice);
+                    pst.setInt(3, paymentId);
+                    pst.setString(4, book.getBookingDate());
                     pst.setString(5, book.getBookingTimeFrom());
                     pst.setString(6, book.getBookingTimeTo());
                     pst.setString(7, book.getBookingStatus());
@@ -583,7 +676,6 @@ public class BookCoach extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
-
     }//GEN-LAST:event_btnBookCoachActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -595,6 +687,10 @@ public class BookCoach extends javax.swing.JFrame {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         clearData();
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void cmbPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPayActionPerformed
 
     /**
      * @param args the command line arguments
@@ -636,6 +732,7 @@ public class BookCoach extends javax.swing.JFrame {
     private javax.swing.JButton btnBookCoach;
     private javax.swing.JButton btnCalcPrice;
     private javax.swing.JButton btnClear;
+    private javax.swing.JComboBox<String> cmbPay;
     private javax.swing.JTextField etDate;
     private javax.swing.JTextField etSearchCoach;
     private javax.swing.JTextField etSearchMember;
@@ -643,6 +740,8 @@ public class BookCoach extends javax.swing.JFrame {
     private javax.swing.JTextField etTimeTo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

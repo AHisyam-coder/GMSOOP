@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 public class ConnectionDB {
 
     private String sql;
+    private int generatedKeys;
 
     public ConnectionDB(String sql) {
         this.sql = sql;
@@ -27,12 +28,25 @@ public class ConnectionDB {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gms", "root", "");
-            
+
             return myConn.prepareStatement(sql);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        return null; 
-   }
+        return null;
+    }
+    
+    //overloading
+    public PreparedStatement tryConn(int generatedKeys) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gms", "root", "");
+
+            return myConn.prepareStatement(sql, generatedKeys);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return null;
+    }
 
 }
