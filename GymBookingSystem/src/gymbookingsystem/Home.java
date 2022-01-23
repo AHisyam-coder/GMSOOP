@@ -27,137 +27,125 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        btnGymSession = new javax.swing.JButton();
         btnSignOut = new javax.swing.JButton();
+        btnCoach = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btnPayment = new javax.swing.JButton();
+        btnMember = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnGymSession = new javax.swing.JButton();
-        btnPayment = new javax.swing.JButton();
-        btnCoach = new javax.swing.JButton();
-        btnMember = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnSignOut.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnSignOut.setText("Sign Out");
-        btnSignOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSignOutActionPerformed(evt);
-            }
-        });
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel1.setText("GYM MANAGEMENT SYSTEM");
-
-        jPanel1.setBackground(new java.awt.Color(102, 255, 153));
-        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-
-        btnGymSession.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnGymSession.setBackground(new java.awt.Color(51, 51, 255));
+        btnGymSession.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnGymSession.setForeground(java.awt.SystemColor.textHighlightText);
         btnGymSession.setText("Gym Session");
+        btnGymSession.setBorder(null);
         btnGymSession.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGymSessionActionPerformed(evt);
             }
         });
+        jPanel2.add(btnGymSession, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 200, 110));
 
-        btnPayment.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnPayment.setText("Payment");
-        btnPayment.addActionListener(new java.awt.event.ActionListener() {
+        btnSignOut.setBackground(new java.awt.Color(51, 51, 255));
+        btnSignOut.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnSignOut.setForeground(java.awt.SystemColor.textHighlightText);
+        btnSignOut.setText("Sign Out");
+        btnSignOut.setBorder(null);
+        btnSignOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPaymentActionPerformed(evt);
+                btnSignOutActionPerformed(evt);
             }
         });
+        jPanel2.add(btnSignOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, 100, 50));
 
-        btnCoach.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnCoach.setBackground(new java.awt.Color(51, 51, 255));
+        btnCoach.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnCoach.setForeground(java.awt.SystemColor.textHighlightText);
         btnCoach.setText("Coach");
         btnCoach.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCoachActionPerformed(evt);
             }
         });
+        jPanel2.add(btnCoach, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, 200, 110));
 
-        btnMember.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gymbookingsystem/Logo.png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 500, 390));
+
+        btnPayment.setBackground(new java.awt.Color(51, 51, 255));
+        btnPayment.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnPayment.setForeground(java.awt.SystemColor.textHighlightText);
+        btnPayment.setText("Payment");
+        btnPayment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPaymentActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 200, 110));
+
+        btnMember.setBackground(new java.awt.Color(51, 51, 255));
+        btnMember.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        btnMember.setForeground(java.awt.SystemColor.textHighlightText);
         btnMember.setText("Member");
         btnMember.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMemberActionPerformed(evt);
             }
         });
+        jPanel2.add(btnMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 200, 200, 110));
+
+        jLabel5.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("FITNESS & HEALTH");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 570, 330, 50));
+
+        jLabel1.setFont(new java.awt.Font("Stencil", 1, 60)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("GYM MANAGEMENT system");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 840, 70));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCoach, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGymSession, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPayment, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGymSession, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCoach, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMember, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.setLayout(null);
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 650, 1090, 10));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Degree Subject\\SEM 2 2021\\Object Oriented Programming\\GMS\\GymBookingSystem\\images\\GMSLOGO.jpeg")); // NOI18N
-        jPanel3.add(jLabel3);
-        jLabel3.setBounds(10, 10, 265, 150);
+        jPanel3.setBackground(new java.awt.Color(0, 0, 255));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(163, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(87, 87, 87)))
-                        .addGap(139, 139, 139))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(302, 302, 302)
-                        .addComponent(btnSignOut)
-                        .addContainerGap())))
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnSignOut)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 10, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 10));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gymbookingsystem/Background.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,7 +158,7 @@ public class Home extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(1101, 719));
+        setSize(new java.awt.Dimension(1101, 699));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -247,6 +235,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnSignOut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
