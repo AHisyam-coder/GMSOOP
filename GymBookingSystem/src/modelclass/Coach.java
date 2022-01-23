@@ -16,14 +16,6 @@ public class Coach {
     private String coachGender;
     private boolean isAvailable;
     private GymSession gymSession;
-    
-    /*public void display()
-    {
-        System.out.println("Coach name " + coachName + " "
-                           + "and Student name is: "
-                           + coachPhoneNum + "" + coachEmail);
-        System.out.println();
-    }*/
 
     public Coach(){
         

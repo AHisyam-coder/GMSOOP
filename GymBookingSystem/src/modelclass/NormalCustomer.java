@@ -8,23 +8,25 @@ package modelclass;
  *
  * @author Hisyam
  */
-public class NormalCustomer extends Customer{
-    private final double PAYMENT_EACH_GYM_SESSION = 10;
-    
+public class NormalCustomer extends Customer {
+
+    private final double NEW_NORMAL_CUST_FEE = 0;
+
     public NormalCustomer(String custIc, String custName, String custPhoneNum, String custGender, int custAge, GymSession gymSession) {
         super(custIc, custName, custPhoneNum, custGender, custAge, gymSession);
     }
-    
+
+    public NormalCustomer() {
+    }
+
     //POLYMORPHISM
     @Override
-    public String customerType(){
+    public String customerType() {
         return "Normal";
     }
-    
+
     @Override
-    public double gymSessionTotalPayment(){
-        double total = gymSession.getHours() * PAYMENT_EACH_GYM_SESSION;
-        
-        return total;
+    public double newCustomerFee() {
+        return NEW_NORMAL_CUST_FEE;
     }
 }

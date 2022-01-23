@@ -25,6 +25,10 @@ abstract public class Customer {
         this.custAge = custAge;
     }
 
+    public Customer() {
+        
+    }
+
     public int getPromotion() {
         return promotion;
     }
@@ -81,12 +85,12 @@ abstract public class Customer {
         this.gymSession = gymSession;
     }
     
-    public double gymSessionTotalPayment(){
-        return 0;
-    }
-    
     //POLYMORPHISM
     public String customerType(){
         return null;
+    }
+    
+    public double newCustomerFee(){
+        return 0;
     }
 }

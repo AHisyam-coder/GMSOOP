@@ -34,6 +34,16 @@ public class Member extends javax.swing.JFrame {
     public Member() {
         initComponents();
         tableUpdate();
+        
+        //polymorphism
+        //upcasting
+        Customer newVIPFee = new VIPCustomer();
+        lblPriceVIP.setText(String.valueOf(newVIPFee.newCustomerFee()));
+        
+        //downcasting
+        Customer normalCust = new NormalCustomer();
+        NormalCustomer nc = (NormalCustomer) normalCust;
+        lblPriceNormalMember.setText(String.valueOf(nc.newCustomerFee()));
     }
 
     /**
@@ -122,6 +132,10 @@ public class Member extends javax.swing.JFrame {
         rbNormal = new javax.swing.JRadioButton();
         btnEditMember = new javax.swing.JButton();
         btnDeleteMember = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        lblPriceVIP = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblPriceNormalMember = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         etFilter = new javax.swing.JTextField();
@@ -293,6 +307,14 @@ public class Member extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setText("Note: - New VIP member price is RM");
+
+        lblPriceVIP.setText("-");
+
+        jLabel10.setText("- New normal member price is RM");
+
+        lblPriceNormalMember.setText("-");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -306,6 +328,12 @@ public class Member extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
                                 .addComponent(etPhoneNo))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btnAddMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnDeleteMember, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(42, 42, 42)
+                                .addComponent(btnEditMember))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -322,21 +350,21 @@ public class Member extends javax.swing.JFrame {
                                         .addGap(0, 106, Short.MAX_VALUE))
                                     .addComponent(etName)
                                     .addComponent(etAge)
-                                    .addComponent(etIcNo)))))
+                                    .addComponent(etIcNo)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblPriceVIP, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addComponent(rbVIP)
-                                .addGap(27, 27, 27)
-                                .addComponent(rbNormal))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnAddMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnDeleteMember, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
-                                .addGap(42, 42, 42)
-                                .addComponent(btnEditMember)))))
+                        .addGap(121, 121, 121)
+                        .addComponent(rbVIP)
+                        .addGap(27, 27, 27)
+                        .addComponent(rbNormal))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPriceNormalMember, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -368,13 +396,21 @@ public class Member extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(rbVIP)
                     .addComponent(rbNormal))
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(lblPriceVIP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(lblPriceNormalMember))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEditMember)
                     .addComponent(btnAddMember))
                 .addGap(18, 18, 18)
                 .addComponent(btnDeleteMember)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         btnBack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -438,14 +474,14 @@ public class Member extends javax.swing.JFrame {
                     .addComponent(etFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClear)
                     .addComponent(btnBack))
-                .addGap(62, 62, 62))
+                .addGap(27, 27, 27))
         );
 
         setSize(new java.awt.Dimension(1101, 719));
@@ -689,6 +725,7 @@ public class Member extends javax.swing.JFrame {
     private javax.swing.JTextField etName;
     private javax.swing.JTextField etPhoneNo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -696,8 +733,11 @@ public class Member extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPriceNormalMember;
+    private javax.swing.JLabel lblPriceVIP;
     private javax.swing.JRadioButton rbFemale;
     private javax.swing.JRadioButton rbMale;
     private javax.swing.JRadioButton rbNormal;
