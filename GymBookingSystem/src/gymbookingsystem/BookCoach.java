@@ -15,7 +15,9 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import modelclass.Booking;
+import modelclass.Coach;
 import modelclass.ConnectionDB;
+import modelclass.GymSession;
 import modelclass.Payment;
 
 /**
@@ -173,6 +175,7 @@ public class BookCoach extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -643,7 +646,8 @@ public class BookCoach extends javax.swing.JFrame {
                 pay.setPaymentStatus(false);
             }
 
-            book = new Booking(null, etDate.getText(), bookPrice, etTimeFrom.getText(), etTimeTo.getText(), "Success", pay);
+            //composition coach class && booking class
+            book = new Booking(null, etDate.getText(), bookPrice, etTimeFrom.getText(), etTimeTo.getText(), "Success", pay, new Coach());
 
             //insert into payment table
             payment();
@@ -679,7 +683,7 @@ public class BookCoach extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBookCoachActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        Coach coach = new Coach();
+        CoachUI coach = new CoachUI();
         this.dispose();
         coach.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed

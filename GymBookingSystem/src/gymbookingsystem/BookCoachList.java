@@ -435,7 +435,7 @@ public class BookCoachList extends javax.swing.JFrame {
     }//GEN-LAST:event_etSearchBookCoachKeyReleased
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        Coach coach = new Coach();
+        CoachUI coach = new CoachUI();
         this.dispose();
         coach.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed

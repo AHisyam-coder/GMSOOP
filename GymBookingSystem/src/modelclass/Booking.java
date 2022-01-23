@@ -15,12 +15,13 @@ public class Booking {
     private String bookingTimeFrom;
     private String bookingTimeTo;
     private String bookingStatus;
+    private Coach coach;
     private Payment payment;
 
     public Booking() {
     }
 
-    public Booking(String bookingId, String bookingDate, double bookingPrice, String bookingTimeFrom, String bookingTimeTo, String bookingStatus, Payment payment) {
+    public Booking(String bookingId, String bookingDate, double bookingPrice, String bookingTimeFrom, String bookingTimeTo, String bookingStatus, Payment payment, Coach coach) {
         this.bookingId = bookingId;
         this.bookingDate = bookingDate;
         this.bookingPrice = bookingPrice;
@@ -28,6 +29,15 @@ public class Booking {
         this.bookingTimeTo = bookingTimeTo;
         this.bookingStatus = bookingStatus;
         this.payment = payment;
+        this.coach = new Coach(coach.getCoachId(), coach.getCoachName(), coach.getCoachPhoneNum(), coach.getCoachEmail(), coach.getCoachGender(), coach.isIsAvailable(), coach.getGymSession());
+    }
+
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public void setCoach(Coach coach) {
+        this.coach = coach;
     }
 
     public String getBookingId() {

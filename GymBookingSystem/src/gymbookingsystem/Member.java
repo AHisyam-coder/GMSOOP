@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -588,7 +589,7 @@ public class Member extends javax.swing.JFrame {
                 pst.setString(4, cust.getCustGender());
                 pst.setInt(5, cust.getCustAge());
                 pst.setString(6, cust.customerType());
-                
+
                 pst.executeUpdate();
 
                 JOptionPane.showMessageDialog(this, "Successfully add a member!");

@@ -28,5 +28,9 @@ public class BookingList {
     public void setBookingListInfo(ArrayList<Booking> bookingListInfo) {
         this.bookingListInfo = bookingListInfo;
     }
+
+    public void add(Booking book) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

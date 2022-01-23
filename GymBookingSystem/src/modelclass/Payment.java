@@ -12,6 +12,7 @@ import java.util.Date;
  */
 public class Payment {
     private final double PAYMENT_BOOK_COACH_PER_HOUR = 12;
+    private final double PAYMENT_GYM_PER_HOUR = 10;
     
     private int PaymentId;
     private int customerId;
@@ -87,5 +88,13 @@ public class Payment {
         feeBookCoach = (float) (((timeTo - timeFrom)/60) * PAYMENT_BOOK_COACH_PER_HOUR);
         
         return feeBookCoach;
+    }
+    
+    public float calcGymSession(int hours){
+        float feeGymSession;
+        
+        feeGymSession = (float) (hours * PAYMENT_GYM_PER_HOUR);
+        
+        return feeGymSession;
     }
 }

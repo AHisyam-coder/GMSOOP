@@ -13,24 +13,29 @@ public class Coach {
     private String coachName;
     private String coachPhoneNum;
     private String coachEmail;
+    private String coachGender;
     private boolean isAvailable;
     private GymSession gymSession;
     
+    /*public void display()
+    {
+        System.out.println("Coach name " + coachName + " "
+                           + "and Student name is: "
+                           + coachPhoneNum + "" + coachEmail);
+        System.out.println();
+    }*/
 
-    public Coach(int coachId, String coachName, String coachPhoneNum, String coachEmail, boolean isAvailable, GymSession gymSession) {
+    public Coach(){
+        
+    }
+    public Coach(int coachId, String coachName, String coachPhoneNum, String coachEmail, String coachGender, boolean isAvailable, GymSession gymSession) {
         this.coachId = coachId;
         this.coachName = coachName;
         this.coachPhoneNum = coachPhoneNum;
         this.coachEmail = coachEmail;
+        this.coachGender = coachGender;
         this.isAvailable = isAvailable;
         this.gymSession = gymSession;
-    }
-
-    public Coach(int random_id, String coachName, String coachPhoneNo, String coachEmail) {
-        this.coachId = random_id;
-        this.coachName = coachName;
-        this.coachPhoneNum = coachPhoneNo;
-        this.coachEmail = coachEmail;
     }
 
     public int getCoachId() {
@@ -65,6 +70,14 @@ public class Coach {
         this.coachEmail = coachEmail;
     }
 
+    public String getCoachGender() {
+        return coachGender;
+    }
+
+    public void setCoachGender(String coachGender) {
+        this.coachGender = coachGender;
+    }
+
     public boolean isIsAvailable() {
         return isAvailable;
     }
@@ -79,13 +92,5 @@ public class Coach {
 
     public void setGymSession(GymSession gymSession) {
         this.gymSession = gymSession;
-    }
-    
-    public void display()
-    {
-        System.out.println("Coach name " + coachName + " "
-                           + "and Student name is: "
-                           + coachPhoneNum + "" + coachEmail);
-        System.out.println();
     }
 }

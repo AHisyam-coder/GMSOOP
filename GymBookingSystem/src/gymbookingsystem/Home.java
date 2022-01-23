@@ -187,13 +187,13 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMemberActionPerformed
 
     private void btnPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaymentActionPerformed
-        Payment payment = new Payment();
+        PaymentUI payment = new PaymentUI();
         this.dispose();
         payment.setVisible(true);
     }//GEN-LAST:event_btnPaymentActionPerformed
 
     private void btnCoachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCoachActionPerformed
-        Coach coach = new Coach();
+        CoachUI coach = new CoachUI();
         this.dispose();
         coach.setVisible(true);
     }//GEN-LAST:event_btnCoachActionPerformed

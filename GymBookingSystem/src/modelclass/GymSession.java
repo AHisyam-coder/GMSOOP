@@ -10,13 +10,15 @@ package modelclass;
  */
 public class GymSession {
     private int GymSessionId;
+    private Payment payment;
     private int hours;
     
     public GymSession() {
     }
 
-    public GymSession(int GymSessionId, int hours) {
+    public GymSession(int GymSessionId, Payment payment, int hours) {
         this.GymSessionId = GymSessionId;
+        this.payment = payment;
         this.hours = hours;
     }
 
@@ -26,6 +28,14 @@ public class GymSession {
 
     public void setGymSessionId(int GymSessionId) {
         this.GymSessionId = GymSessionId;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 
     public int getHours() {
