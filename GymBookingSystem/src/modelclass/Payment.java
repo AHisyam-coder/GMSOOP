@@ -10,19 +10,19 @@ import java.util.Date;
  *
  * @author Hisyam
  */
-public class Payment {
-    private final double PAYMENT_BOOK_COACH_PER_HOUR = 12;
-    private final double PAYMENT_GYM_PER_HOUR = 10;
-    
+
+//interface
+public class Payment implements PaymentInterface {
+
     private int PaymentId;
     private int customerId;
     private int coachId;
     private String paymentDate;
     private double paymentTotal;
     private Boolean paymentStatus;
-    
+
     public Payment() {
-        
+
     }
 
     public Payment(int PaymentId, int customerId, int coachId, String paymentDate, double paymentTotal, Boolean paymentStatus) {
@@ -81,20 +81,20 @@ public class Payment {
     public void setPaymentStatus(Boolean paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
-    
-    public float calcBookCoach(int timeFrom, int timeTo){
+
+    public float calcBookCoach(int timeFrom, int timeTo) {
         float feeBookCoach;
-        
-        feeBookCoach = (float) (((timeTo - timeFrom)/60) * PAYMENT_BOOK_COACH_PER_HOUR);
-        
+
+        feeBookCoach = (float) (((timeTo - timeFrom) / 60) * PAYMENT_BOOK_COACH_PER_HOUR);
+
         return feeBookCoach;
     }
-    
-    public float calcGymSession(int hours){
+
+    public float calcGymSession(int hours) {
         float feeGymSession;
-        
+
         feeGymSession = (float) (hours * PAYMENT_GYM_PER_HOUR);
-        
+
         return feeGymSession;
     }
 }

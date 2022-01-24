@@ -85,12 +85,8 @@ abstract public class Customer {
         this.gymSession = gymSession;
     }
     
-    //POLYMORPHISM
-    public String customerType(){
-        return null;
-    }
+    //abstraction
+    abstract public String customerType();
     
-    public double newCustomerFee(){
-        return 0;
-    }
+    abstract public double newCustomerFee();
 }

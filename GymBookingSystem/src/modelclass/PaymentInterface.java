@@ -8,6 +8,7 @@ package modelclass;
  *
  * @author Hisyam
  */
-public interface Interface {
-    public void backNavMouseClicked(java.awt.event.MouseEvent evt);
+public interface PaymentInterface {
+    double PAYMENT_BOOK_COACH_PER_HOUR = 12;
+    double PAYMENT_GYM_PER_HOUR = 10;
 }
